@@ -20,6 +20,7 @@ El objetivo de esta plataforma de e-commerce es:
   - Script de inicialización y seed [`prisma/seed.ts`](file:///c:/Users/Edu/Documents/Desarrollo/Los%20Troperos/prisma/seed.ts) (`npm run db:seed`).
   - Conexión configurada vía `DATABASE_URL` estándar en `.env.local`.
   - Endpoints modulares `/api/catalog`, `/api/orders` y `/api/seed` con arquitectura resiliente offline/demo.
+- **Control de Versiones**: Repositorio remoto sincronizado en `https://github.com/EduHildebrandt/LosTroperos.git` (rama `main`).
 - **Integraciones**:
   - Resumen estructurado y envío a WhatsApp oficial (+54 9 2945 53-2486) con número de pedido y desglose comercial.
 
@@ -40,6 +41,8 @@ El objetivo de esta plataforma de e-commerce es:
   - [x] `npm run build` exitoso con 0 errores de TypeScript y Turbopack.
   - [x] Servidor de desarrollo respondiendo en `http://localhost:3000` (HTTP 200).
   - [x] Endpoint `/api/catalog` verificado respondiendo datos válidos.
+- [x] **Fase 5: Auditoría QA & Application Security (OWASP Top 10 / ASVS)**
+- [x] **Fase 6: Publicación y Versionado en GitHub**
 
 ---
 
@@ -56,3 +59,6 @@ El objetivo de esta plataforma de e-commerce es:
 4. **Limpieza de dependencias Firebase**:
    - *Causa*: Error de resolución de tipos al desacoplar Firebase tras la decisión del usuario de migrar a PostgreSQL.
    - *Solución*: Se eliminó `src/lib/firebase.ts` y se actualizaron los servicios hacia Prisma y Route Handlers (`/api/catalog`, `/api/orders`, `/api/seed`).
+5. **Alineación de Git Ignore y Variables de Entorno**:
+   - *Causa*: Protección de secretos previa al push público a GitHub.
+   - *Solución*: Se verificó que `.env.local` estuviera estrictamente ignorado por `.gitignore`, publicando únicamente `.env.example` con los esquemas de variables seguras.

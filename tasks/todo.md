@@ -10,8 +10,8 @@
 | TASK-05 | Banner de Sincronización PostgreSQL en UI | Frontend | DONE | `DatabaseSeedBanner.tsx` en header con estado y acción de sembrado |
 | TASK-06 | Actualización de Variables `.env.local` y `.env.example` | DevOps | DONE | `DATABASE_URL=postgresql://...` configurado y documentado |
 | TASK-07 | Verificación de Compilación `npm run build` | QA / Lead | DONE | Build exitoso (0 errores), servidor activo en localhost:3000 |
+| TASK-08 | Publicación y Versionado en GitHub | DevOps / Lead | DONE | Repositorio vinculado y subido a https://github.com/EduHildebrandt/LosTroperos.git |
 
 ## Next Immediate Steps
-1. Cuando tengas lista tu base de datos PostgreSQL (local, Supabase, Neon o Railway), actualiza `DATABASE_URL` en `.env.local`.
-2. Para aplicar las tablas directamente puedes ejecutar `npm run db:push` o correr el script SQL [`prisma/schema.sql`](file:///c:/Users/Edu/Documents/Desarrollo/Los%20Troperos/prisma/schema.sql) en tu cliente SQL (pgAdmin/DBeaver/Supabase).
-3. Para sembrar los datos criollos, presiona el botón "Sembrar Catálogo en PostgreSQL" en la barra superior o ejecuta `npm run db:seed`.
+1. Configurar CI/CD en GitHub Actions si se desea deployment automático (ej. Vercel / Railway).
+2. Conectar la base de datos PostgreSQL de producción mediante el secret `DATABASE_URL`.
