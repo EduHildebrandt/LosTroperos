@@ -11,6 +11,7 @@
 | TASK-06 | Actualización de Variables `.env.local` y `.env.example` | DevOps | DONE | `DATABASE_URL=postgresql://...` configurado y documentado |
 | TASK-07 | Verificación de Compilación `npm run build` | QA / Lead | DONE | Build exitoso (0 errores), servidor activo en localhost:3000 |
 | TASK-08 | Publicación y Versionado en GitHub | DevOps / Lead | DONE | Repositorio vinculado y subido a https://github.com/EduHildebrandt/LosTroperos.git |
+| TASK-09 | Adaptación & Containerización para VPS (PostgreSQL) | DevOps / Lead | DONE | Dockerfile standalone, docker-compose.yml, ecosystem.config.js, deploy.sh y Nginx conf |
 
 ## Next Immediate Steps
 1. Configurar CI/CD en GitHub Actions si se desea deployment automático (ej. Vercel / Railway).

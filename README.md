@@ -67,6 +67,49 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ---
 
+## 🌐 Despliegue en VPS (Ubuntu / Debian con PostgreSQL)
+
+El proyecto está 100% adaptado para correr en tu propio servidor VPS mediante **dos opciones**:
+
+### Opción 1: Despliegue con Docker y Docker Compose (Recomendado)
+Levanta tanto PostgreSQL 16 como la app en contenedores aislados con persistencia automática:
+
+1. Edita las credenciales en `docker-compose.yml` o define un archivo `.env`:
+   ```bash
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=tu_password_seguro
+   POSTGRES_DB=los_troperos
+   ```
+2. Ejecuta el stack:
+   ```bash
+   docker compose up -d --build
+   ```
+3. Inicializa las tablas y el catálogo semilla:
+   ```bash
+   docker compose exec app npx prisma db push
+   docker compose exec app npx tsx prisma/seed.ts
+   ```
+
+### Opción 2: Despliegue Nativo con Node.js + PM2 + Nginx
+Si tienes PostgreSQL instalado directamente en el sistema operativo del VPS:
+
+1. Configura la base en PostgreSQL:
+   ```sql
+   CREATE DATABASE los_troperos;
+   ```
+2. En la carpeta del proyecto, define `.env.local` con tu `DATABASE_URL`.
+3. Ejecuta el script automatizado:
+   ```bash
+   chmod +x scripts/deploy.sh
+   ./scripts/deploy.sh
+   ```
+4. Configura Nginx como reverse proxy utilizando la plantilla incluida en [`nginx/los-troperos.conf`](./nginx/los-troperos.conf) y genera tu certificado HTTPS con Certbot:
+   ```bash
+   sudo certbot --nginx -d tudominio.com -d www.tudominio.com
+   ```
+
+---
+
 ## 📦 Scripts Disponibles
 
 - `npm run dev`: Inicia el servidor de desarrollo en `localhost:3000`.
