@@ -12,6 +12,7 @@
 | TASK-07 | Verificación de Compilación `npm run build` | QA / Lead | DONE | Build exitoso (0 errores), servidor activo en localhost:3000 |
 | TASK-08 | Publicación y Versionado en GitHub | DevOps / Lead | DONE | Repositorio vinculado y subido a https://github.com/EduHildebrandt/LosTroperos.git |
 | TASK-09 | Adaptación & Containerización para VPS (PostgreSQL) | DevOps / Lead | DONE | Dockerfile standalone, docker-compose.yml, ecosystem.config.js, deploy.sh y Nginx conf |
+| TASK-10 | Catálogo Real, Eliminación Banner DB & SSL en VPS | Full-Stack / QA | DONE | 18 productos reales con 21 imágenes locales, sin banner técnico, allowedDevOrigins y HTTPS activo en lostroperos.site |
 
 ## Next Immediate Steps
 1. Configurar CI/CD en GitHub Actions si se desea deployment automático (ej. Vercel / Railway).

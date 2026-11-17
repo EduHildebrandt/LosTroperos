@@ -62,3 +62,6 @@ El objetivo de esta plataforma de e-commerce es:
 5. **Alineación de Git Ignore y Variables de Entorno**:
    - *Causa*: Protección de secretos previa al push público a GitHub.
    - *Solución*: Se verificó que `.env.local` estuviera estrictamente ignorado por `.gitignore`, publicando únicamente `.env.example` con los esquemas de variables seguras.
+6. **Bloqueo Cross-Origin en `next dev` y Carga de Catálogo en VPS**:
+   - *Causa*: Al acceder mediante `www.lostroperos.site` al servidor en modo desarrollo (`next dev`), Next.js 16 bloqueaba los chunks JS/HMR dejando la página detenida en el spinner inicial. Además, se removió el componente `DatabaseSeedBanner` de la vista pública.
+   - *Solución*: Se configuró `allowedDevOrigins` y `images: { unoptimized: true }` en `next.config.ts`, se optimizó `getCatalogData()` en `src/app/page.tsx`, se cargaron las 21 imágenes reales y los 18 productos en PostgreSQL, y se desplegó el certificado SSL con Certbot en `https://lostroperos.site`.
