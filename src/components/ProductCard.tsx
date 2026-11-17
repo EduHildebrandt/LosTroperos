@@ -34,16 +34,16 @@ export default function ProductCard({
       {/* Contenedor de Imagen */}
       <div
         onClick={() => onOpenDetail(product)}
-        className="w-full h-64 relative bg-[#f7f3ec] overflow-hidden cursor-pointer"
+        className="w-full h-72 relative bg-[#f3ece0] overflow-hidden cursor-pointer border-b border-[#eadfcb]/60"
       >
         <Image
           src={product.images[0] || "/placeholder.jpg"}
           alt={product.name}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+          className="object-contain p-1.5 group-hover:scale-105 transition-transform duration-500 ease-out"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors pointer-events-none" />
 
         {/* Botón flotante para ver detalle */}
         <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">

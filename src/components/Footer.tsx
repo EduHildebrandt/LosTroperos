@@ -130,27 +130,22 @@ export default function Footer() {
           <ul className="space-y-2 text-xs text-stone-300">
             <li>
               <a href="#catalogo" className="hover:text-amber-300 transition-colors">
-                • Aperos, Bastos y Monturas
+                • Aperos, Bastos y Cangallas
               </a>
             </li>
             <li>
               <a href="#catalogo" className="hover:text-amber-300 transition-colors">
-                • Cuchillería Criolla y de Autor
+                • Alforjas de Lona, Cordura e Impermeables
               </a>
             </li>
             <li>
               <a href="#catalogo" className="hover:text-amber-300 transition-colors">
-                • Soguería de Trabajo y Lazos
+                • Cuchillería Criolla Eskilstuna
               </a>
             </li>
             <li>
               <a href="#catalogo" className="hover:text-amber-300 transition-colors">
-                • Indumentaria, Boinas y Ponchos
-              </a>
-            </li>
-            <li>
-              <a href="#catalogo" className="hover:text-amber-300 transition-colors">
-                • Cojinillos de Oveja Patagónica
+                • Sombreros de Paño y Alpargatas
               </a>
             </li>
           </ul>

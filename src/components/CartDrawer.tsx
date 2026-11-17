@@ -109,12 +109,12 @@ export default function CartDrawer() {
                         className="flex gap-3 p-3 bg-white rounded-xl border border-[#eadfcb] shadow-xs"
                       >
                         {/* Imagen miniatura */}
-                        <div className="w-20 h-20 rounded-lg overflow-hidden relative bg-stone-100 shrink-0 border border-[#dfd2be]">
+                        <div className="w-20 h-20 rounded-lg overflow-hidden relative bg-[#f3ece0] shrink-0 border border-[#dfd2be]">
                           <Image
                             src={item.product.images[0] || "/placeholder.jpg"}
                             alt={item.product.name}
                             fill
-                            className="object-cover"
+                            className="object-contain p-0.5"
                             sizes="80px"
                           />
                         </div>

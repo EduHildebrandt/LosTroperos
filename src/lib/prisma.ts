@@ -16,8 +16,8 @@ export const isPostgresConfigured = (): boolean => {
   const url = process.env.DATABASE_URL;
   return Boolean(
     url &&
-    !url.includes("user:password@localhost") &&
-    !url.includes("placeholder") &&
-    url.startsWith("postgresql://") || url?.startsWith("postgres://")
+      !url.includes("user:password@localhost") &&
+      !url.includes("placeholder") &&
+      (url.startsWith("postgresql://") || url.startsWith("postgres://"))
   );
 };

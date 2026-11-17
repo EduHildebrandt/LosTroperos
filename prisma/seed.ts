@@ -6,6 +6,33 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("🐎 Iniciando sembrado en base de datos PostgreSQL (Los Troperos)...");
 
+  const validCategoryIds = INITIAL_CATEGORIES.map((c) => c.id);
+  const validProductIds = INITIAL_PRODUCTS.map((p) => p.id);
+
+  // 0. Limpiar productos anteriores sin pedidos que ya no forman parte del catálogo actual
+  const obsoleteProducts = await prisma.product.findMany({
+    where: {
+      id: { notIn: validProductIds },
+      orderItems: { none: {} },
+    },
+    select: { id: true },
+  });
+
+  if (obsoleteProducts.length > 0) {
+    await prisma.product.deleteMany({
+      where: { id: { in: obsoleteProducts.map((p) => p.id) } },
+    });
+    console.log(`🧹 Eliminados ${obsoleteProducts.length} productos de prueba anteriores.`);
+  }
+
+  // Limpiar categorías obsoletas sin productos
+  await prisma.category.deleteMany({
+    where: {
+      id: { notIn: validCategoryIds },
+      products: { none: {} },
+    },
+  });
+
   // 1. Sembrado de Categorías
   for (const cat of INITIAL_CATEGORIES) {
     await prisma.category.upsert({
@@ -64,7 +91,14 @@ async function main() {
       },
     });
 
-    // Variantes asociadas si existen
+    const validVariantIds = (prod.variants || []).map((v) => v.id);
+    await prisma.productVariant.deleteMany({
+      where: {
+        productId: createdProduct.id,
+        id: { notIn: validVariantIds },
+      },
+    });
+
     if (prod.variants && prod.variants.length > 0) {
       for (const v of prod.variants) {
         await prisma.productVariant.upsert({

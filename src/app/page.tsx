@@ -7,9 +7,8 @@ import CartDrawer from "@/components/CartDrawer";
 import CheckoutModal from "@/components/CheckoutModal";
 import ProductCard from "@/components/ProductCard";
 import ProductDetailModal from "@/components/ProductDetailModal";
-import DatabaseSeedBanner from "@/components/DatabaseSeedBanner";
 import { Product, Category } from "@/types";
-import { getCategories, getProducts } from "@/services/productService";
+import { getCatalogData } from "@/services/productService";
 import {
   Compass,
   ShieldCheck,
@@ -33,12 +32,9 @@ export default function Home() {
   useEffect(() => {
     async function loadData() {
       try {
-        const [cats, prods] = await Promise.all([
-          getCategories(),
-          getProducts(),
-        ]);
-        setCategories(cats);
-        setProducts(prods);
+        const data = await getCatalogData();
+        setCategories(data.categories);
+        setProducts(data.products);
       } catch (e) {
         console.error("Failed to load catalog data:", e);
       } finally {
@@ -61,13 +57,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#fbf9f5]">
-      {/* Header y Banner de Sincronización PostgreSQL */}
+      {/* Header */}
       <Header
         onSearchChange={setSearchTerm}
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
-      <DatabaseSeedBanner />
 
       <main className="flex-1">
         {/* HERO SECTION CRIOLLA PATAGÓNICA */}
@@ -310,10 +305,13 @@ export default function Home() {
       <CheckoutModal />
 
       {/* Modal de Ficha de Producto */}
-      <ProductDetailModal
-        product={detailProduct}
-        onClose={() => setDetailProduct(null)}
-      />
+      {detailProduct && (
+        <ProductDetailModal
+          key={detailProduct.id}
+          product={detailProduct}
+          onClose={() => setDetailProduct(null)}
+        />
+      )}
     </div>
   );
 }

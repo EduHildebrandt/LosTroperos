@@ -62,12 +62,12 @@ export default function ProductDetailModal({
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Columna Izquierda: Galería de Fotos */}
           <div className="p-6 bg-[#f4eee4] flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#dfd2be]">
-            <div className="w-full h-80 relative rounded-2xl overflow-hidden shadow-inner bg-stone-200">
+            <div className="w-full h-80 sm:h-[420px] relative rounded-2xl overflow-hidden shadow-inner bg-[#ebe2d3]">
               <Image
                 src={currentImage}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain p-2"
                 sizes="(max-width: 768px) 100vw, 400px"
               />
               {product.badge && (
@@ -98,7 +98,7 @@ export default function ProductDetailModal({
                       alt={`${product.name} ${idx}`}
                       width={64}
                       height={64}
-                      className="object-cover w-full h-full"
+                      className="object-contain bg-[#efe8dc] w-full h-full"
                     />
                   </button>
                 ))}
@@ -155,7 +155,11 @@ export default function ProductDetailModal({
                   <label className="block text-xs font-bold text-[#4d2613]">
                     Seleccioná Opción / Medida:
                   </label>
-                  <div className="grid grid-cols-1 gap-2">
+                  <div
+                    className={`grid gap-2 max-h-48 overflow-y-auto pr-1 ${
+                      product.variants.length > 4 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+                    }`}
+                  >
                     {product.variants.map((v) => (
                       <button
                         key={v.id}

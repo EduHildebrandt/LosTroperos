@@ -21,7 +21,7 @@ export async function GET() {
           category: true,
           variants: true,
         },
-        orderBy: { createdAt: "desc" },
+        orderBy: [{ featured: "desc" }, { createdAt: "asc" }],
       }),
     ]);
 
