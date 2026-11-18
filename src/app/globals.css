@@ -1,64 +1,196 @@
 @import "tailwindcss";
 
-:root {
-  --bg-sand: #fbf9f5;
-  --bg-card: #ffffff;
-  --text-primary: #261b14;
-  --text-secondary: #6e5849;
-  --brand-leather: #7b4224;
-  --brand-leather-dark: #4d2613;
-  --brand-forest: #1c3b2b;
-  --brand-forest-dark: #12281c;
-  --brand-gold: #c3922e;
-  --brand-gold-hover: #a87920;
-  --border-warm: #eadfcb;
+@theme {
+  --color-surface: #fcf9f3;
+  --color-surface-dim: #dcdad4;
+  --color-surface-bright: #fcf9f3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f3ed;
+  --color-surface-container: #f0eee8;
+  --color-surface-container-high: #ebe8e2;
+  --color-surface-container-highest: #e5e2dc;
+  --color-on-surface: #1c1c18;
+  --color-on-surface-variant: #56423e;
+  --color-inverse-surface: #31312d;
+  --color-inverse-on-surface: #f3f0ea;
+  --color-outline: #8a726d;
+  --color-outline-variant: #ddc0bb;
+  --color-surface-tint: #a03f2f;
+  --color-primary: #651308;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #842a1c;
+  --color-on-primary-container: #ff9f8e;
+  --color-inverse-primary: #ffb4a6;
+  --color-secondary: #7e562e;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdc796;
+  --color-on-secondary-container: #79512a;
+  --color-tertiary: #413000;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #5d4600;
+  --color-on-tertiary-container: #dfb33e;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #ffdad4;
+  --color-primary-fixed-dim: #ffb4a6;
+  --color-on-primary-fixed: #400200;
+  --color-on-primary-fixed-variant: #81281a;
+  --color-secondary-fixed: #ffdcbf;
+  --color-secondary-fixed-dim: #f1bc8c;
+  --color-on-secondary-fixed: #2d1600;
+  --color-on-secondary-fixed-variant: #633f19;
+  --color-tertiary-fixed: #ffdf98;
+  --color-tertiary-fixed-dim: #eec14b;
+  --color-on-tertiary-fixed: #251a00;
+  --color-on-tertiary-fixed-variant: #5a4300;
+  --color-background: #fcf9f3;
+  --color-on-background: #1c1c18;
+  --color-surface-variant: #e5e2dc;
+  --color-cuero-habano: #3E2723;
+  --color-cuero-suela: #A05A2C;
+  --color-cuero-crudo: #EADECE;
+  --color-bordo-profundo: #5A1215;
+  --color-bronce-envejecido: #9E783B;
+  --color-plata-alpaca: #D8DCD6;
+  --color-carbon-charcoal: #1C1917;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin: 3rem;
+  --spacing-margin-mobile: 1.25rem;
+
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-display-mobile: var(--font-playfair), Georgia, serif;
+  --font-headline-lg: var(--font-playfair), Georgia, serif;
+  --font-headline-lg-mobile: var(--font-playfair), Georgia, serif;
+  --font-headline-md: var(--font-playfair), Georgia, serif;
+  --font-headline-sm: var(--font-playfair), Georgia, serif;
+  --font-title-lg: var(--font-jakarta), system-ui, sans-serif;
+  --font-title-md: var(--font-jakarta), system-ui, sans-serif;
+  --font-body-lg: var(--font-jakarta), system-ui, sans-serif;
+  --font-body-md: var(--font-jakarta), system-ui, sans-serif;
+  --font-body-sm: var(--font-jakarta), system-ui, sans-serif;
+  --font-label-lg: var(--font-jakarta), system-ui, sans-serif;
+  --font-label-md: var(--font-jakarta), system-ui, sans-serif;
+  --font-label-sm: var(--font-jakarta), system-ui, sans-serif;
+}
+
+/* Custom Typography Scale matching Stitch Herencia Criolla Design System */
+.text-display {
+  font-size: 3.5rem;
+  line-height: 4rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.text-display-mobile {
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+.text-headline-lg {
+  font-size: 2.25rem;
+  line-height: 2.75rem;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+@media (min-width: 1024px) {
+  .text-headline-lg {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+.text-headline-md {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+.text-headline-sm {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+.text-title-lg {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: 600;
+}
+.text-title-md {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+.text-body-md {
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+.text-body-sm {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+.text-label-lg {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+.text-label-md {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.text-label-sm {
+  font-size: 0.6875rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
 }
 
 body {
-  background-color: var(--bg-sand);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fcf9f3;
+  color: #1c1c18;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
 }
 
-/* Glassmorphism Criollo */
-.glass-criollo {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(210, 180, 140, 0.3);
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  vertical-align: middle;
+  user-select: none;
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(220, 205, 185, 0.6);
-}
-
-.leather-gradient {
-  background: linear-gradient(135deg, #4d2613 0%, #7b4224 50%, #5a2e17 100%);
-}
-
-.forest-gradient {
-  background: linear-gradient(135deg, #12281c 0%, #1c3b2b 60%, #28543d 100%);
-}
-
-.gold-badge {
-  background: linear-gradient(135deg, #c3922e 0%, #e2b14e 100%);
-  color: #1a1008;
+.material-symbols-filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ebd8;
+  background: #f0eee8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bfa182;
+  background: #a05a2c;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8b6b4e;
+  background: #651308;
 }

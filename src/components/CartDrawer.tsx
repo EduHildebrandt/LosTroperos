@@ -51,16 +51,16 @@ export default function CartDrawer() {
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-[#fdfbf7] shadow-2xl flex flex-col border-l border-[#e2d5c0]">
           {/* Header */}
-          <div className="p-5 border-b border-[#eadfcb] flex items-center justify-between bg-white">
+          <div className="p-5 border-b border-cuero-crudo flex items-center justify-between bg-surface">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-lg leather-gradient flex items-center justify-center text-amber-200 shadow-xs">
+              <div className="w-9 h-9 rounded-lg bg-cuero-habano flex items-center justify-center text-cuero-crudo shadow-xs">
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
-                <h2 className="font-serif font-bold text-base text-[#261b14]">
+                <h2 className="font-headline-sm text-base text-cuero-habano">
                   Tu Carrito Criollo
                 </h2>
-                <p className="text-xs text-[#7b5f4c]">
+                <p className="text-xs text-secondary">
                   {items.length === 0
                     ? "Vacío por el momento"
                     : `${items.length} artículo${items.length > 1 ? "s" : ""} seleccionado${items.length > 1 ? "s" : ""}`}
@@ -69,7 +69,7 @@ export default function CartDrawer() {
             </div>
             <button
               onClick={() => setIsCartOpen(false)}
-              className="p-2 text-stone-500 hover:text-stone-900 rounded-lg hover:bg-stone-100 transition-colors"
+              className="p-2 text-secondary hover:text-cuero-habano rounded-lg hover:bg-surface-container transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -298,7 +298,7 @@ export default function CartDrawer() {
 
               <button
                 onClick={handleProceedToCheckout}
-                className="w-full py-3.5 px-4 rounded-xl leather-gradient text-amber-50 font-bold text-sm shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-lg bg-primary hover:bg-bordo-profundo text-on-primary font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Continuar Compra</span>
                 <ArrowRight className="w-4 h-4" />
